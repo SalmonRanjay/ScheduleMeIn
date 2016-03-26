@@ -4,7 +4,7 @@
 //
 //  Created by ranjay on 3/25/16.
 //  Copyright © 2016 ranjay. All rights reserved.
-//
+// //Event-Background
 
 import UIKit
 
@@ -12,6 +12,11 @@ class FirstViewController: UIViewController {
 
     private let kKeychainItemName = "Google Calendar API"
     private let kClientID = "575094967919-dcgt50cve9jimn0cjkcsn0m6j3s1kkjl.apps.googleusercontent.com"
+    @IBOutlet weak var backgroundImageView:UIImageView!;
+    @IBOutlet weak var collectionView:UICollectionView!;
+    
+    var eventsArray:[Events] = [];
+    
     
     @IBOutlet weak var output:UITextView!;
     
@@ -25,6 +30,17 @@ class FirstViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
+        
+        
+        self.collectionView.dataSource = self;
+        self.collectionView.delegate = self;
+        // Apply blurring effect
+        backgroundImageView.image = UIImage(named: "sydney")
+        let blurEffect = UIBlurEffect(style: .Dark)
+        let blurEffectView = UIVisualEffectView(effect: blurEffect)
+        blurEffectView.frame = view.bounds
+        backgroundImageView.addSubview(blurEffectView)
+        
         if let auth = GTMOAuth2ViewControllerTouch.authForGoogleFromKeychainForName(
             kKeychainItemName,
             clientID: kClientID,
@@ -88,12 +104,15 @@ class FirstViewController: UIViewController {
                         timeStyle: .ShortStyle
                     )
                     eventString += "\(startString) - \(event.summary)\n"
+                    let newEvent: Events = Events(title: event.summary, date: startString)
+                    self.eventsArray.append(newEvent);
                 }
             } else {
                 eventString = "No upcoming events found."
             }
+            self.collectionView.reloadData();
             
-            output.text = eventString
+            //output.text = eventString
     }
     
     // Handle completion of the authorization process, and update the Google Calendar API
@@ -137,5 +156,26 @@ class FirstViewController: UIViewController {
     }
 
 
+}
+
+extension FirstViewController: UICollectionViewDataSource, UICollectionViewDelegate{
+    
+    func numberOfSectionsInCollectionView(collectionView: UICollectionView) -> Int {
+        return 1;
+    }
+    
+    func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return self.eventsArray.count;
+    }
+    
+    func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
+        let cell = collectionView.dequeueReusableCellWithReuseIdentifier("Cell", forIndexPath: indexPath) as! EventTypeCollectionViewCell;
+        let item = self.eventsArray[indexPath.row];
+        
+        cell.cellBackground.image = UIImage(named: "Event-Background");
+        cell.eventInfo.text = "\(item.date!) - \(item.title!)";
+        
+        return cell;
+    }
 }
 

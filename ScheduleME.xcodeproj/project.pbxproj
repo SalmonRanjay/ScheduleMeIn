@@ -17,6 +17,7 @@
 		918181F31CA61D0E002C35CA /* ScheduleMETests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 918181F21CA61D0E002C35CA /* ScheduleMETests.swift */; };
 		918181FE1CA61D0E002C35CA /* ScheduleMEUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 918181FD1CA61D0E002C35CA /* ScheduleMEUITests.swift */; };
 		9181820D1CA62549002C35CA /* Events.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9181820C1CA62549002C35CA /* Events.swift */; };
+		9181820F1CA63ACB002C35CA /* EventTypeCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9181820E1CA63ACB002C35CA /* EventTypeCollectionViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -56,6 +57,7 @@
 		918181FF1CA61D0E002C35CA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		9181820B1CA62073002C35CA /* ScheduleME-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "ScheduleME-Bridging-Header.h"; sourceTree = "<group>"; };
 		9181820C1CA62549002C35CA /* Events.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Events.swift; sourceTree = "<group>"; };
+		9181820E1CA63ACB002C35CA /* EventTypeCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventTypeCollectionViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -118,6 +120,7 @@
 				918181E61CA61D0E002C35CA /* LaunchScreen.storyboard */,
 				918181E91CA61D0E002C35CA /* Info.plist */,
 				9181820C1CA62549002C35CA /* Events.swift */,
+				9181820E1CA63ACB002C35CA /* EventTypeCollectionViewCell.swift */,
 			);
 			path = ScheduleME;
 			sourceTree = "<group>";
@@ -341,6 +344,7 @@
 			files = (
 				9181820D1CA62549002C35CA /* Events.swift in Sources */,
 				918181E01CA61D0E002C35CA /* SecondViewController.swift in Sources */,
+				9181820F1CA63ACB002C35CA /* EventTypeCollectionViewCell.swift in Sources */,
 				918181DC1CA61D0E002C35CA /* AppDelegate.swift in Sources */,
 				918181DE1CA61D0E002C35CA /* FirstViewController.swift in Sources */,
 			);
