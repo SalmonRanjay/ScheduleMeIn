@@ -36,62 +36,26 @@ class CreateEventViewController: UIViewController {
         
         self.backgroundView.backgroundColor = UIColor(red: 51/255, green: 153/255, blue: 255/255, alpha: 1);
         
-        checkCalendarAuthorizationStatus();
         
-        for calendar in self.calendars!{
         
-            print(calendar);
-        }
+//        for calendar in self.calendars!{
+//        
+//            print(calendar);
+//        }
 
     }
     
-    func checkCalendarAuthorizationStatus() {
-        let status = EKEventStore.authorizationStatusForEntityType(EKEntityType.Event)
-        
-        switch (status) {
-        case EKAuthorizationStatus.NotDetermined:
-            // This happens on first-run
-            requestAccessToCalendar()
-            break;
-        case EKAuthorizationStatus.Authorized:
-            // Things are in line with being able to show the calendars in the table view
-            loadCalendars()
-            break
-        case EKAuthorizationStatus.Restricted, EKAuthorizationStatus.Denied:
-            // We need to help them give us permission
-            //needPermissionView.fadeIn()
-            break
-        }
-    }
+ 
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
     
-    //MARK: - Request access to calendar
-    // ...
-    
-    func requestAccessToCalendar() {
-        eventStore.requestAccessToEntityType(EKEntityType.Event, completion: {
-            (accessGranted: Bool, error: NSError?) in
-            
-            if accessGranted == true {
-                dispatch_async(dispatch_get_main_queue(), {
-                    self.loadCalendars()
-                                   })
-            } else {
-                dispatch_async(dispatch_get_main_queue(), {
-                                    })
-            }
-        })
-    }
+
     
     
     
-    func loadCalendars() {
-        self.calendars = eventStore.calendarsForEntityType(EKEntityType.Event)
-    }
 
     /*
     // MARK: - Navigation
@@ -112,7 +76,35 @@ class CreateEventViewController: UIViewController {
     }
     
     @IBAction func createEvent(sender: AnyObject){
+        
+        
+        
     
+        let event:EKEvent = EKEvent(eventStore: eventStore)
+        event.title = self.titleTextField.text!
+        event.startDate = NSDate()
+        event.endDate = NSDate()
+        event.notes = self.dateTextField.text
+        event.calendar = eventStore.defaultCalendarForNewEvents
+        do {try eventStore.saveEvent(event, span: EKSpan.ThisEvent, commit: true);}catch{}
+        //eventStore.saveEvent(event, span: EKSpanThisEvent, error: nil)
+        
+        let calendar = NSCalendar.currentCalendar()
+        let components = NSDateComponents()
+        components.minute = 5
+        let notifdate = NSDate().dateByAddingTimeInterval(5.0 * 60.0) //calendar.dateByAddingComponents(components, toDate: NSDate(), options: [])
+        
+        // create a corresponding local notification
+        var notification = UILocalNotification()
+        notification.alertBody = "ASA Event \"\(self.titleTextField.text)\" Scheduled" // text that will be displayed in the notification
+        notification.alertAction = "open" // text that is displayed after "slide to..." on the lock screen - defaults to "slide to view"
+        notification.fireDate = notifdate // todo item due date (when notification will be fired)
+        notification.soundName = UILocalNotificationDefaultSoundName // play default sound
+        notification.userInfo = ["UUID": NSUUID().UUIDString, ] // assign a unique identifier to the notification so that we can retrieve it later
+        notification.category = "ASA Event"
+        UIApplication.sharedApplication().scheduleLocalNotification(notification)
+        
+        self.dismissViewControllerAnimated(true, completion: nil)
     }
     
     

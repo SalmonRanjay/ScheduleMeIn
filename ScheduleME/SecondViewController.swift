@@ -7,9 +7,11 @@
 //
 
 import UIKit
+import EventKitUI
 
 class SecondViewController: UIViewController {
 
+     let eventStore = EKEventStore()
 
     override func viewDidLoad() {
         super.viewDidLoad()

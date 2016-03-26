@@ -18,7 +18,25 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Override point for customization after application launch.
         // Change the colour of status bar from black to white
         UIApplication.sharedApplication().statusBarStyle = .LightContent
+        
+        KCSClient.sharedClient().initializeKinveyServiceForAppKey(
+            "kid_ZkTsIr6QJb",
+            withAppSecret: "5e31bb7a10fc411eac7015203a2cd32f",
+            usingOptions: nil
+        )
+        
+        let notificationSettings = UIUserNotificationSettings(forTypes: UIUserNotificationType.Alert, categories: nil)
+    
+        UIApplication.sharedApplication().registerUserNotificationSettings(notificationSettings)
+        
         return true
+    }
+    
+    func application(application: UIApplication, didReceiveLocalNotification notification: UILocalNotification) {
+        if let userInfo = notification.userInfo {
+            let customField1 = userInfo["CustomField1"] as! String
+            print("didReceiveLocalNotification: \(customField1)")
+        }
     }
 
     func applicationWillResignActive(application: UIApplication) {

@@ -13,4 +13,6 @@
 //#import "GTLServiceCalendar.h"
 #import "GTLCalendar.h"
 
+#import <KinveyKit/KinveyKit.h>
+
 #endif /* ScheduleME_Bridging_Header_h */
