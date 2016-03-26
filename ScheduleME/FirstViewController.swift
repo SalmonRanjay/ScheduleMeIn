@@ -364,7 +364,7 @@ extension FirstViewController: UICollectionViewDataSource, UICollectionViewDeleg
         let cell = collectionView.dequeueReusableCellWithReuseIdentifier("Cell", forIndexPath: indexPath) as! EventTypeCollectionViewCell;
         let item = self.eventsArray[indexPath.row];
         
-        cell.cellBackground.image = UIImage(named: "Event-Background");
+        cell.cellBackground.image = UIImage(named: "Logo");
         cell.eventInfo.text = "\(item.date!) - \(item.title!)";
         
         
