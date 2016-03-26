@@ -168,10 +168,12 @@ PODS:
   - gtm-http-fetcher (1.0.141)
   - gtm-oauth2 (1.0.126):
     - gtm-http-fetcher (~> 1.0.141)
+  - KinveyKit (1.40.5)
 
 DEPENDENCIES:
   - Google
   - Google-API-Client
+  - KinveyKit
 
 SPEC CHECKSUMS:
   Google: 61379f0072bc561a7e174d23a6cbe41bd6d8599c
@@ -182,5 +184,6 @@ SPEC CHECKSUMS:
   GoogleUtilities: 85f8ad6b251544286a97163133d042ec95f889c5
   gtm-http-fetcher: 6d4617e7d343b6e4c082b777541c334eb6f5d81e
   gtm-oauth2: 2a18b824e4f8a02df6cfe987beb59ae9d9697f9d
+  KinveyKit: 4ce5923b143e9557bdeb1f91efeb6292dfa8f413
 
 COCOAPODS: 0.39.0

@@ -194,6 +194,36 @@
                                     <action selector="submitEvent:" destination="ZtH-9t-dsq" eventType="touchUpInside" id="JSF-KD-BSB"/>
                                 </connections>
                             </button>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="3hA-GD-Oma">
+                                <rect key="frame" x="164" y="43" width="273" height="283"/>
+                                <subviews>
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Title" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="84i-vJ-d7q">
+                                        <rect key="frame" x="9" y="143" width="257" height="30"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Description" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="OEY-j7-CbA">
+                                        <rect key="frame" x="8" y="187" width="257" height="30"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BeX-Ga-Bap">
+                                        <rect key="frame" x="102" y="239" width="70" height="30"/>
+                                        <state key="normal" title="Add Event"/>
+                                    </button>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Create an Event" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gPh-Nj-sZS">
+                                        <rect key="frame" x="40" y="27" width="195" height="62"/>
+                                        <fontDescription key="fontDescription" name="CourierNewPSMT" family="Courier New" pointSize="21"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" red="0.1333333333" green="0.34112063819999999" blue="0.41568627450000001" alpha="1" colorSpace="calibratedRGB"/>
+                            </view>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tND-1Z-Fmo">
+                                <rect key="frame" x="523" y="43" width="57" height="30"/>
+                                <state key="normal" title="Settings"/>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -201,6 +231,11 @@
                             <constraint firstItem="ytG-1e-eOc" firstAttribute="top" secondItem="z9m-0l-qYQ" secondAttribute="bottom" constant="34" id="NFu-uz-PZP"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="backgroundView" destination="3hA-GD-Oma" id="eqB-ud-Qes"/>
+                        <outlet property="dateTextField" destination="OEY-j7-CbA" id="XJ0-VN-GiE"/>
+                        <outlet property="titleTextField" destination="84i-vJ-d7q" id="r1v-ix-QnA"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="RL9-gU-Dfm" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
