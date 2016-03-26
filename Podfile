@@ -7,6 +7,7 @@ target 'ScheduleME' do
 platform :ios, '8.1'
 pod 'Google'
 pod 'Google-API-Client'
+pod 'KinveyKit'
 end
 
 target 'ScheduleMETests' do

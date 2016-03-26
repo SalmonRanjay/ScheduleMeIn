@@ -38,45 +38,47 @@ class CreateEventViewController: UIViewController {
     
     @IBAction func submitEvent(sender: AnyObject) {
         //http://localhost:3000/api/testServer
-        var request = NSMutableURLRequest(URL: NSURL(string: "http://localhost:3000/api/testServer")!);
-        var session = NSURLSession.sharedSession()
-        request.HTTPMethod = "POST"
-        var err: NSError?
-        do{
-            request.HTTPBody = try NSJSONSerialization.dataWithJSONObject(dictionaryData, options: []);
-            
-        }catch{
-            
-            print("Error happend");
-        }
+        // let jsonString = NSString(data: jsonData, encoding: NSUTF8StringEncoding)! as String
+        print("Button Pressed")
+        let url:NSURL = NSURL(string: "http://localhost:3000/api/testServer")!
         
-        var task = session.dataTaskWithRequest(request) { (data, response, error) -> Void in
+       
+        let session = NSURLSession.sharedSession()
+        
+        let request = NSMutableURLRequest(URL: url)
+        request.HTTPMethod = "POST"
+        request.cachePolicy = NSURLRequestCachePolicy.ReloadIgnoringCacheData
+        
+        
+        
+        do {
             
-            print("Response: \(response)")
-            var strData = NSString(data: data!, encoding: NSUTF8StringEncoding)
-            print("Body: \(strData)")
-            var err: NSError?
-            do{
-                var json =  try NSJSONSerialization.JSONObjectWithData(data!, options: .MutableLeaves) as? [String:AnyObject]
-                if let parseJSON = json {
-                    // Okay, the parsedJSON is here, let's get the value for 'success' out of it
-                    var success = parseJSON["success"] as? Int
-                    print("Succes: \(success)")
-                }
-                else {
-                    // Woa, okay the json object was nil, something went worng. Maybe the server isn't running?
-                    let jsonStr = NSString(data: data!, encoding: NSUTF8StringEncoding)
-                    print("Error could not parse JSON: \(jsonStr)")
-                }
-            }catch{
-                
+            let json = try NSJSONSerialization.dataWithJSONObject(dictionaryData, options: .PrettyPrinted)
+            
+            let paramString =  NSString(data: json, encoding: NSUTF8StringEncoding)! as String
+            
+            print(paramString);
+            
+        request.HTTPBody = paramString.dataUsingEncoding(NSUTF8StringEncoding)
+        
+        let task = session.dataTaskWithRequest(request) {
+            (
+            let data, let response, let error) in
+            
+            guard let _:NSData = data, let _:NSURLResponse = response  where error == nil else {
+                print("error")
+                return
             }
             
+            let dataString = NSString(data: data!, encoding: NSUTF8StringEncoding)
+            print(dataString)
+            
         }
-        //request.HTTPBody = NSJSONSerialization.dataWithJSONObject(authInfo, options: nil,  err)
-        request.addValue("application/json", forHTTPHeaderField: "Content-Type")
-        request.addValue("application/json", forHTTPHeaderField: "Accept")
-     
+        
+        task.resume()
+        } catch{
+        
+        }
     }
 
 }
