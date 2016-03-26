@@ -18,6 +18,7 @@
 		918181FE1CA61D0E002C35CA /* ScheduleMEUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 918181FD1CA61D0E002C35CA /* ScheduleMEUITests.swift */; };
 		9181820D1CA62549002C35CA /* Events.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9181820C1CA62549002C35CA /* Events.swift */; };
 		9181820F1CA63ACB002C35CA /* EventTypeCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9181820E1CA63ACB002C35CA /* EventTypeCollectionViewCell.swift */; };
+		918182111CA665F4002C35CA /* CreateEventViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 918182101CA665F4002C35CA /* CreateEventViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -58,6 +59,7 @@
 		9181820B1CA62073002C35CA /* ScheduleME-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "ScheduleME-Bridging-Header.h"; sourceTree = "<group>"; };
 		9181820C1CA62549002C35CA /* Events.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Events.swift; sourceTree = "<group>"; };
 		9181820E1CA63ACB002C35CA /* EventTypeCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventTypeCollectionViewCell.swift; sourceTree = "<group>"; };
+		918182101CA665F4002C35CA /* CreateEventViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateEventViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -121,6 +123,7 @@
 				918181E91CA61D0E002C35CA /* Info.plist */,
 				9181820C1CA62549002C35CA /* Events.swift */,
 				9181820E1CA63ACB002C35CA /* EventTypeCollectionViewCell.swift */,
+				918182101CA665F4002C35CA /* CreateEventViewController.swift */,
 			);
 			path = ScheduleME;
 			sourceTree = "<group>";
@@ -231,6 +234,7 @@
 				TargetAttributes = {
 					918181D71CA61D0E002C35CA = {
 						CreatedOnToolsVersion = 7.2;
+						DevelopmentTeam = 356GA2XF72;
 					};
 					918181ED1CA61D0E002C35CA = {
 						CreatedOnToolsVersion = 7.2;
@@ -347,6 +351,7 @@
 				9181820F1CA63ACB002C35CA /* EventTypeCollectionViewCell.swift in Sources */,
 				918181DC1CA61D0E002C35CA /* AppDelegate.swift in Sources */,
 				918181DE1CA61D0E002C35CA /* FirstViewController.swift in Sources */,
+				918182111CA665F4002C35CA /* CreateEventViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -487,10 +492,13 @@
 			baseConfigurationReference = 43839E4CDA6DE9C36C7A528F /* Pods-ScheduleME.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = ScheduleME/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.ranjay.ScheduleME;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "ScheduleME-Bridging-Header.h";
 			};
 			name = Debug;
@@ -500,10 +508,13 @@
 			baseConfigurationReference = 812C73397E06554F66051833 /* Pods-ScheduleME.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = ScheduleME/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.ranjay.ScheduleME;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "ScheduleME-Bridging-Header.h";
 			};
 			name = Release;

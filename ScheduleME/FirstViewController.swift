@@ -14,6 +14,7 @@ class FirstViewController: UIViewController {
     private let kClientID = "575094967919-dcgt50cve9jimn0cjkcsn0m6j3s1kkjl.apps.googleusercontent.com"
     @IBOutlet weak var backgroundImageView:UIImageView!;
     @IBOutlet weak var collectionView:UICollectionView!;
+    var authInfoVariable:GTMOAuth2Authentication = GTMOAuth2Authentication();
     
     var eventsArray:[Events] = [];
     
@@ -22,7 +23,7 @@ class FirstViewController: UIViewController {
     
     // If modifying these scopes, delete your previously saved credentials by
     // resetting the iOS simulator or uninstall the app.
-    private let scopes = [kGTLAuthScopeCalendarReadonly]
+    private let scopes = [kGTLAuthScopeCalendar]
     
     private let service = GTLServiceCalendar()
 
@@ -34,6 +35,7 @@ class FirstViewController: UIViewController {
         
         self.collectionView.dataSource = self;
         self.collectionView.delegate = self;
+        collectionView.backgroundColor = UIColor.clearColor()
         // Apply blurring effect
         backgroundImageView.image = UIImage(named: "sydney")
         let blurEffect = UIBlurEffect(style: .Dark)
@@ -46,7 +48,22 @@ class FirstViewController: UIViewController {
             clientID: kClientID,
             clientSecret: nil) {
                 service.authorizer = auth
+                print("User AUth Data: \(auth)");
+                authInfoVariable = auth
         }
+        
+        
+      
+        
+        if UIScreen.mainScreen().bounds.size.height == 480.0 {
+            let flowLayout = self.collectionView.collectionViewLayout as!
+            UICollectionViewFlowLayout
+            flowLayout.itemSize = CGSizeMake(250.0, 300.0)
+        }
+        
+        self.navigationController!.navigationBar.barTintColor = UIColor(red: 51/255, green: 153/255, blue: 255/255, alpha: 1);
+        self.navigationController!.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName: UIColor.whiteColor()]
+        //tabBarController.tabBar.tintColor = UIColor.yellowColor()
 
     }
 
@@ -109,6 +126,7 @@ class FirstViewController: UIViewController {
                 }
             } else {
                 eventString = "No upcoming events found."
+                self.eventsArray = [Events(title: "You Have NO Events", date: "")];
             }
             self.collectionView.reloadData();
             
@@ -125,7 +143,8 @@ class FirstViewController: UIViewController {
                 showAlert("Authentication Error", message: error.localizedDescription)
                 return
             }
-            
+        
+       
             service.authorizer = authResult
             dismissViewControllerAnimated(true, completion: nil)
     }
@@ -154,6 +173,15 @@ class FirstViewController: UIViewController {
         )
         alert.show()
     }
+    
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        
+        if(segue.identifier == "createEvent"){
+            let destinationViewController = segue.destinationViewController as! CreateEventViewController;
+            destinationViewController.authInfo = self.authInfoVariable;
+        }
+    }
 
 
 }
@@ -174,6 +202,7 @@ extension FirstViewController: UICollectionViewDataSource, UICollectionViewDeleg
         
         cell.cellBackground.image = UIImage(named: "Event-Background");
         cell.eventInfo.text = "\(item.date!) - \(item.title!)";
+        
         
         return cell;
     }
