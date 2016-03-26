@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		06E11AE788963C88F25A8756 /* libPods-ScheduleME.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 7CF66101C7AE6A01CA145D3A /* libPods-ScheduleME.a */; };
 		918181DC1CA61D0E002C35CA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 918181DB1CA61D0E002C35CA /* AppDelegate.swift */; };
 		918181DE1CA61D0E002C35CA /* FirstViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 918181DD1CA61D0E002C35CA /* FirstViewController.swift */; };
 		918181E01CA61D0E002C35CA /* SecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 918181DF1CA61D0E002C35CA /* SecondViewController.swift */; };
@@ -15,6 +16,7 @@
 		918181E81CA61D0E002C35CA /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 918181E61CA61D0E002C35CA /* LaunchScreen.storyboard */; };
 		918181F31CA61D0E002C35CA /* ScheduleMETests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 918181F21CA61D0E002C35CA /* ScheduleMETests.swift */; };
 		918181FE1CA61D0E002C35CA /* ScheduleMEUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 918181FD1CA61D0E002C35CA /* ScheduleMEUITests.swift */; };
+		9181820D1CA62549002C35CA /* Events.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9181820C1CA62549002C35CA /* Events.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -35,6 +37,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		43839E4CDA6DE9C36C7A528F /* Pods-ScheduleME.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ScheduleME.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ScheduleME/Pods-ScheduleME.debug.xcconfig"; sourceTree = "<group>"; };
+		7CF66101C7AE6A01CA145D3A /* libPods-ScheduleME.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-ScheduleME.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		812C73397E06554F66051833 /* Pods-ScheduleME.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ScheduleME.release.xcconfig"; path = "Pods/Target Support Files/Pods-ScheduleME/Pods-ScheduleME.release.xcconfig"; sourceTree = "<group>"; };
 		918181D81CA61D0E002C35CA /* ScheduleME.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ScheduleME.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		918181DB1CA61D0E002C35CA /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		918181DD1CA61D0E002C35CA /* FirstViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstViewController.swift; sourceTree = "<group>"; };
@@ -49,6 +54,8 @@
 		918181F91CA61D0E002C35CA /* ScheduleMEUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ScheduleMEUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		918181FD1CA61D0E002C35CA /* ScheduleMEUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScheduleMEUITests.swift; sourceTree = "<group>"; };
 		918181FF1CA61D0E002C35CA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		9181820B1CA62073002C35CA /* ScheduleME-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "ScheduleME-Bridging-Header.h"; sourceTree = "<group>"; };
+		9181820C1CA62549002C35CA /* Events.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Events.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,6 +63,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				06E11AE788963C88F25A8756 /* libPods-ScheduleME.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -79,10 +87,13 @@
 		918181CF1CA61D0E002C35CA = {
 			isa = PBXGroup;
 			children = (
+				9181820B1CA62073002C35CA /* ScheduleME-Bridging-Header.h */,
 				918181DA1CA61D0E002C35CA /* ScheduleME */,
 				918181F11CA61D0E002C35CA /* ScheduleMETests */,
 				918181FC1CA61D0E002C35CA /* ScheduleMEUITests */,
 				918181D91CA61D0E002C35CA /* Products */,
+				A1D1D5FD923ACD6B97C46F77 /* Pods */,
+				D46452F3545CC905EBAD5265 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -106,6 +117,7 @@
 				918181E41CA61D0E002C35CA /* Assets.xcassets */,
 				918181E61CA61D0E002C35CA /* LaunchScreen.storyboard */,
 				918181E91CA61D0E002C35CA /* Info.plist */,
+				9181820C1CA62549002C35CA /* Events.swift */,
 			);
 			path = ScheduleME;
 			sourceTree = "<group>";
@@ -128,6 +140,23 @@
 			path = ScheduleMEUITests;
 			sourceTree = "<group>";
 		};
+		A1D1D5FD923ACD6B97C46F77 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				43839E4CDA6DE9C36C7A528F /* Pods-ScheduleME.debug.xcconfig */,
+				812C73397E06554F66051833 /* Pods-ScheduleME.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		D46452F3545CC905EBAD5265 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				7CF66101C7AE6A01CA145D3A /* libPods-ScheduleME.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -135,9 +164,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 918182021CA61D0E002C35CA /* Build configuration list for PBXNativeTarget "ScheduleME" */;
 			buildPhases = (
+				A2C76E1921CD483910600C70 /* Check Pods Manifest.lock */,
 				918181D41CA61D0E002C35CA /* Sources */,
 				918181D51CA61D0E002C35CA /* Frameworks */,
 				918181D61CA61D0E002C35CA /* Resources */,
+				670D4D08BBB844F1C3A8A8BE /* Embed Pods Frameworks */,
+				6BF78DE4D72493760F65B3F9 /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -254,11 +286,60 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		670D4D08BBB844F1C3A8A8BE /* Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-ScheduleME/Pods-ScheduleME-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		6BF78DE4D72493760F65B3F9 /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-ScheduleME/Pods-ScheduleME-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		A2C76E1921CD483910600C70 /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		918181D41CA61D0E002C35CA /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9181820D1CA62549002C35CA /* Events.swift in Sources */,
 				918181E01CA61D0E002C35CA /* SecondViewController.swift in Sources */,
 				918181DC1CA61D0E002C35CA /* AppDelegate.swift in Sources */,
 				918181DE1CA61D0E002C35CA /* FirstViewController.swift in Sources */,
@@ -399,23 +480,27 @@
 		};
 		918182031CA61D0E002C35CA /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 43839E4CDA6DE9C36C7A528F /* Pods-ScheduleME.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = ScheduleME/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.ranjay.ScheduleME;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "ScheduleME-Bridging-Header.h";
 			};
 			name = Debug;
 		};
 		918182041CA61D0E002C35CA /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 812C73397E06554F66051833 /* Pods-ScheduleME.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = ScheduleME/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.ranjay.ScheduleME;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "ScheduleME-Bridging-Header.h";
 			};
 			name = Release;
 		};
@@ -486,6 +571,7 @@
 				918182041CA61D0E002C35CA /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		918182051CA61D0E002C35CA /* Build configuration list for PBXNativeTarget "ScheduleMETests" */ = {
 			isa = XCConfigurationList;
@@ -494,6 +580,7 @@
 				918182071CA61D0E002C35CA /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		918182081CA61D0E002C35CA /* Build configuration list for PBXNativeTarget "ScheduleMEUITests" */ = {
 			isa = XCConfigurationList;
@@ -502,6 +589,7 @@
 				9181820A1CA61D0E002C35CA /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
